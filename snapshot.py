@@ -1,5 +1,6 @@
 from db import DB
 from helper import Helper
+from datetime import datetime
 scheme = {
     'id': 'integer primary key autoincrement not null',
     'page_id': 'text',
@@ -13,10 +14,10 @@ class Snapshot:
     def __init__(self, page_id, url, title, time, data):
         self.data = {}
         self.data['id'] = Helper.random_id()
-        self.data['page_id'] = Helper.random_id()
+        self.data['page_id'] = page_id
         self.data['page_url'] = url
         self.data['title'] = title
-        self.data['time'] = time
+        self.data['time'] = datetime.now()
         self.data['data'] = data
         self.db = DB('snapshots.db')
         #def create(self, table, scheme):

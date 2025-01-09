@@ -14,7 +14,7 @@ class PageMonitor:
             result = reader.read_url(url)
             html_extractor = HTMLTextExtractor()
             result = html_extractor.extract_text(result)
-            snapshot = Snapshot(url, page_id, 'empty_title', 'empty_time', result)
+            snapshot = Snapshot(page_id, url, 'empty_title', 'empty_time', result)
             page_id = page_id + 1
             snapshot.store_to_db()
 
